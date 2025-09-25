@@ -1,0 +1,40 @@
+{% extends "web/base.html" %}
+
+{% block title %}Catálogo de Flanes{% endblock %}
+
+{% block extra_head %}
+<style>
+  .card-img-top {
+    height: 250px; width: 100%; object-fit: cover;
+    border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem;
+  }
+  .card { height: 100%; display: flex; flex-direction: column; }
+  .card-body { flex: 1 1 auto; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      {% for flan in flanes %}
+      <div class="col mb-5">
+        <div class="card h-100 shadow-sm">
+          <a href="{% url 'detalle' flan.pk %}">
+            <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.nombre_producto }}">
+          </a>
+          <div class="card-body p-4">
+            <div class="text-center">
+              <h5 class="fw-bolder">{{ flan.nombre_producto }}</h5>
+              <p class="text-muted small">{{ flan.descripcion }}</p>
+              <h6 class="text-success">${{ flan.precio }}</h6>
+              <p class="small">Stock: {{ flan.stock }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

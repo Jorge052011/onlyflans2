@@ -1,0 +1,25 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Sitio{% endblock %}</title>
+  {% include 'web/componentes/scripts.html' %}
+  <style>
+    body { padding-bottom: 50px; background-color: #d4e6ab; }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include "web/componentes/navbar.html" %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "web/componentes/footer.html" %}
+</body>
+</html>

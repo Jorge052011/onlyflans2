@@ -1,0 +1,61 @@
+
+
+{% extends "web/base.html" %}
+{% block title %}Acerca{% endblock %}
+{% block content %}
+ <section class="py-5 bg-light">
+  <div class="container">
+    <!-- Título principal -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary">Acerca de Nosotros</h1>
+      <p class="lead text-muted">Conoce quiénes somos y por qué hacemos lo que hacemos.</p>
+    </div>
+
+    <!-- Primera fila: imagen + texto -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://images.aws.nestle.recipes/resized/2020_04_29T14_58_39_mrs_ImageRecipes_144671lrg_1200_628.jpg" class="img-fluid rounded shadow" alt="Nuestra historia">
+      </div>
+      <div class="col-md-6">
+        <h3 class="fw-semibold text-secondary">Nuestra Historia</h3>
+        <p>
+          Nacimos con el propósito de entregar productos de calidad que alegren el día a día de nuestros clientes.
+          Desde nuestros inicios, hemos creído en la excelencia, la innovación y el compromiso con cada persona que confía en nosotros.
+        </p>
+        <p>
+          Hoy seguimos creciendo gracias a ti, mejorando constantemente para ofrecerte lo mejor.
+        </p>
+      </div>
+    </div>
+
+    <!-- Segunda fila: misión y visión -->
+    <div class="row text-center mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="p-4 border rounded shadow-sm bg-white h-100">
+          <h4 class="text-primary">Nuestra Misión</h4>
+          <p class="mb-0">
+            Entregar experiencias únicas a través de productos que combinan calidad, diseño y accesibilidad.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 border rounded shadow-sm bg-white h-100">
+          <h4 class="text-success">Nuestra Visión</h4>
+          <p class="mb-0">
+            Ser reconocidos como líderes en nuestro rubro, inspirando confianza y construyendo relaciones a largo plazo con nuestros clientes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frase final -->
+    <div class="text-center">
+      <blockquote class="blockquote">
+        <p class="mb-0 fst-italic">"No se trata solo de lo que vendemos, sino de la experiencia que creamos para ti."</p>
+        <footer class="blockquote-footer">Equipo <cite title="Source Title">OnlyFlans</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

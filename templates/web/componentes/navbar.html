@@ -1,0 +1,42 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">OnlyFlans</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav me-auto">
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Flanes </a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'premium' %}active{% endif %}" href="{% url 'premium' %}">Flanes Premium</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'acerca' %}active{% endif %}" href="{% url 'acerca' %}">Acerca</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'bienvenido_cliente' %}active{% endif %}" href="{% url 'bienvenido_cliente' %}">Bienvenido</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}" href="{% url 'contacto' %}">Contacto</a>
+        {% if user.is_authenticated %}
+          <span class="nav-link text-danger disabled">Hola, {{ user.username }}</span>
+        {% endif %}
+      </div>
+
+      <div class="navbar-nav d-flex align-items-center">
+        {% if user.is_authenticated %}
+          <a class="nav-link px-3" href="{% url 'cart_detail' %}">
+            Carrito <span class="badge bg-primary">{{ cart_count }}</span>
+          </a>
+          <form method="post" action="{% url 'logout' %}" class="m-0 p-0 d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-link nav-link px-3 m-0 text-decoration-none">
+              Salir de la cuenta de {{ user.username }}
+            </button>
+          </form>
+        {% else %}
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'register' %}active{% endif %}" href="{% url 'register' %}">Registrarse</a></li>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
